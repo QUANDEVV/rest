@@ -4,6 +4,10 @@ from.serializers import BeachSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+from .models import Video
+from .serializers import VideoSerializer
+from rest_framework import generics
+
 
 
 
@@ -44,3 +48,13 @@ def beach_detail(request, id, format=None):
   elif request.method == 'DELETE':
      drink.delete()
      return Response(status=status.HTTP_204_NO_CONTENT)
+   
+   
+   
+class VideoListCreateView(generics.ListCreateAPIView):
+    queryset = Video.objects.all()
+    serializer_class = VideoSerializer
+   
+   
+   
+   

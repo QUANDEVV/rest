@@ -19,14 +19,15 @@ from django.urls import path
 from rest import settings, views
 from rest_framework.urlpatterns import format_suffix_patterns
 from django.conf.urls.static import static
-
+from .views import VideoListCreateView
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('beach/', views.beach_list),
-    path('drinks/<int:id>', views.beach_detail)
+    path('drinks/<int:id>', views.beach_detail),
+    path('videos/', VideoListCreateView.as_view(), name='video-list-create')
     
     
     
@@ -35,3 +36,5 @@ urlpatterns = [
 
 
 urlpatterns = format_suffix_patterns(urlpatterns)
+
+

@@ -6,6 +6,9 @@ class Beach(models.Model):
   image_url = models.URLField(null=True, blank=True)
   
   
+class Video(models.Model):
+    title = models.CharField(max_length=100)
+    video_file = models.FileField(upload_to='videos/')
   
   
   
