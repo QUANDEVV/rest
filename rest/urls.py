@@ -30,7 +30,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('beach/', views.beach_list),
     path('drinks/<int:id>', views.beach_detail),
-    path('videos/', VideoListCreateView.as_view(), name='video-list-create')
+    path('media/videos/', VideoListCreateView.as_view(), name='video-list-create')
     
     
     
@@ -40,6 +40,8 @@ urlpatterns = [
 
 urlpatterns = format_suffix_patterns(urlpatterns)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
 
 
 
