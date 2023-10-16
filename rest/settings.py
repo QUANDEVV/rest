@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-67()*kg*%sn(s%rk!&=$pry4bixxjg1dm8r)rcj-ikp-h$3f@h'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*' , 'localhost', 'localhost:3000']
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest',
     'rest_framework',
     'corsheaders',
+    # 'storages'
 ]
 
 MIDDLEWARE = [
@@ -152,4 +153,19 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+
+
+
+
+AWS_ACCESS_KEY_ID = 'AKIATZV4LCWGVAWURQOK '
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'onlyfana'
+AWS_S3_SIGNATURE_NAME = 's3v4',
+AWS_S3_REGION_NAME = 'eu-north-1'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL =  None
+AWS_S3_VERITY = True
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
