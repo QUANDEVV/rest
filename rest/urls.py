@@ -20,6 +20,9 @@ from rest import settings, views
 from rest_framework.urlpatterns import format_suffix_patterns
 from django.conf.urls.static import static
 from .views import VideoListCreateView
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 
 
@@ -36,5 +39,7 @@ urlpatterns = [
 
 
 urlpatterns = format_suffix_patterns(urlpatterns)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
 
