@@ -11,7 +11,7 @@ from rest_framework import generics
 
 
 
-@api_view(['GET', 'POST'])
+@api_view(['GET'])
 def beach_list(request, format=None):
   #get all drinks
   #serialize them
@@ -22,11 +22,11 @@ def beach_list(request, format=None):
       serializer = BeachSerializer(beach, many=True) #this will serialise all of them
       return Response(serializer.data)
  
-  if request.method == 'POST':
-    serializer = BeachSerializer(data=request.data)
-    if serializer.is_valid():
-      serializer.save()
-      return Response (serializer.data, status=status.HTTP_201_CREATED)
+  # if request.method == 'POST':
+  #   serializer = BeachSerializer(data=request.data)
+  #   if serializer.is_valid():
+  #     serializer.save()
+  #     return Response (serializer.data, status=status.HTTP_201_CREATED)
     
 @api_view(['GET','PUT', 'DELETE'])
 def beach_detail(request, id, format=None):
